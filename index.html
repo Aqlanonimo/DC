@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discord Cleaner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg"></div>
+  <main class="app">
+    <header>
+      <div>
+        <div class="brand">DISCORD <span>CLEANER</span></div>
+        <p class="sub">Organize seus servidores sem colocar seu token em risco.</p>
+      </div>
+      <button id="themeBtn" class="iconBtn" title="Alternar tema">☾</button>
+    </header>
+
+    <section id="setup" class="card setup">
+      <h1>Seu painel de limpeza</h1>
+      <p>Esta versão funciona sem self-bot. Você pode carregar sua lista de servidores por JSON/CSV e selecionar vários de uma vez.</p>
+      <div class="row">
+        <label class="fileBtn">Importar lista
+          <input id="fileInput" type="file" accept=".json,.csv,text/csv,application/json">
+        </label>
+        <button id="demoBtn" class="secondary">Carregar exemplo</button>
+      </div>
+      <small>Formato JSON: [{ "id":"123", "name":"Meu servidor" }]</small>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="toolbar card">
+        <div class="stats">
+          <b id="count">0</b><span>servidores</span>
+          <b id="selected">0</b><span>selecionados</span>
+        </div>
+        <div class="actions">
+          <input id="search" placeholder="Pesquisar servidor..." autocomplete="off">
+          <button id="selectAll">Selecionar todos</button>
+          <button id="clear">Limpar</button>
+          <button id="export" class="secondary">Exportar seleção</button>
+        </div>
+      </div>
+
+      <div id="serverList" class="grid"></div>
+      <div id="empty" class="empty" hidden>Nenhum servidor encontrado.</div>
+
+      <div id="selectedBar" class="selectedBar" hidden>
+        <span><b id="barCount">0</b> selecionados</span>
+        <button id="openSelected">Abrir links no Discord</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>Discord Cleaner • ferramenta local</span>
+      <span>Não armazena senha, token ou dados em servidor.</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
